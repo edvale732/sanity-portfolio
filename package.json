@@ -12,6 +12,7 @@
     "pnpm": ">=10.0.0"
   },
   "dependencies": {
-    "@sanity/icons": "^5.2.2"
+    "@sanity/icons": "^5.2.2",
+    "@sanity/image-url": "^2.1.1"
   }
 }

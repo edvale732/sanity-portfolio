@@ -11,6 +11,9 @@ importers:
       '@sanity/icons':
         specifier: ^5.2.2
         version: 5.2.2(react@19.2.8)
+      '@sanity/image-url':
+        specifier: ^2.1.1
+        version: 2.1.1
 
   apps/studio:
     dependencies:
@@ -61,6 +64,9 @@ importers:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
     devDependencies:
+      '@sanity/client':
+        specifier: ^8.6.2
+        version: 8.6.2
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.3.3
