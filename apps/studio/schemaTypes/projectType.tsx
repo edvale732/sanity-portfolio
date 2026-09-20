@@ -9,13 +9,11 @@ export const projectType = defineType({
     defineField({
       name: 'name',
       type: 'string',
-      group: 'details',
       
     }),
     defineField({
       name: 'slug',
       type: 'slug',
-      group: 'details',
       options: {source: 'name'},
       validation: (rule) => rule
       .required()
@@ -24,7 +22,6 @@ export const projectType = defineType({
     defineField({
       name: 'projectType',
       type: 'array',
-      group: 'details',
       of: [{type: 'string', options: {list: ['director', 'producer', 'actor', 'editor'], layout: 'radio'}}],
       validation: (rule) => rule
       .required()
@@ -34,7 +31,6 @@ export const projectType = defineType({
     defineField({
       name: 'date',
       type: 'date',
-      group: 'details',
       validation: (rule) => rule
       .required()
       .error('Date is required for the project')
@@ -58,7 +54,7 @@ export const projectType = defineType({
       name: 'video',
       type: 'url',
     }),
-    
+
     defineField({
       name: 'tags',
       type: 'array',
