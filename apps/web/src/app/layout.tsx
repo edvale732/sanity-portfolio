@@ -4,7 +4,7 @@ import "./globals.css";
 import { SanityLive } from "@/sanity/live";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
-import { DisableDraftMode } from "@components/disable-draft-mode"
+import { DisableDraftMode } from "@/components/disable-draft-mode";
 
 
 

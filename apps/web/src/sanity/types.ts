@@ -223,15 +223,48 @@ export type PROJECTS_QUERY_RESULT = Array<{
 }>;
 
 // Source: ../web/src/app/projects/[slug]/page.tsx
-// Variable: EVENT_QUERY
-// Query: *[    _type == "event" &&    slug.current == $slug  ][0]{  ...,  "date": coalesce(date, now()),  "doorsOpen": coalesce(doorsOpen, 0),  headline->,  venue->}
-export type EVENT_QUERY_RESULT = null;
+// Variable: PROJECT_QUERY
+// Query: *[    _type == "project" &&    slug.current == $slug  ][0]{  _id,  name,  slug,  projectType,  date,  description,  image,  video,  tags}
+export type PROJECT_QUERY_RESULT = {
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+  projectType: Array<"actor" | "director" | "editor" | "producer"> | null;
+  date: string | null;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  video: string | null;
+  tags: Array<string> | null;
+} | null;
 
 // Query TypeMap
 declare global {
   interface SanityQueries {
     '\n  *[_type == "project"\n  && defined(slug.current)]\n  | order(date asc)\n  {_id, name, slug, description }': PROJECTS_QUERY_RESULT;
-    '*[\n    _type == "event" &&\n    slug.current == $slug\n  ][0]{\n  ...,\n  "date": coalesce(date, now()),\n  "doorsOpen": coalesce(doorsOpen, 0),\n  headline->,\n  venue->\n}': EVENT_QUERY_RESULT;
+    '*[\n    _type == "project" &&\n    slug.current == $slug\n  ][0]{\n  _id,\n  name,\n  slug,\n  projectType,\n  date,\n  description,\n  image,\n  video,\n  tags\n}': PROJECT_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too
