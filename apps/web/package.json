@@ -12,7 +12,8 @@
     "next": "16.3.5",
     "next-sanity": "^13.3.4",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "@sanity/image-url": "^2.1.1"
   },
   "devDependencies": {
     "@sanity/client": "^8.6.2",
@@ -23,9 +24,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "@sanity/icons": "^5.2.2",
-    "@sanity/image-url": "^2.1.1"
+    "typescript": "^5"
+    
   },
   "packageManager": "pnpm@11.25.0"
 }
